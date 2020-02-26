@@ -6,7 +6,20 @@
 
 jvm核心在于回收机制、多线程。CMS基本配置参数：
 
--Xmx4g -Xms4g -Xmn600m -XX:PermSize=256m -XX:MaxPermSize=256m -Xss256k -verbose:gc -XX:+UseParNewGC -XX:ParallelGCThreads=16 -XX:+DisableExplicitGC -XX:+UseConcMarkSweepGC -XX:CMSInitiatingOccupancyFraction=75 -XX:+CMSPermGenSweepingEnabled  -XX:+CMSClassUnloadingEnabled -XX:+CMSParallelRemarkEnabled -XX:+UseCMSCompactAtFullCollection -XX:+UseCompressedOops  -XX:+PrintGCDateStamps -XX:+PrintGCDetails -XX:+PrintGCApplicationConcurrentTime -XX:+PrintGCApplicationStoppedTime
+-Xmx4g -Xms4g -Xmn600m -XX:PermSize=256m 
+-XX:MaxPermSize=256m -Xss256k -verbose:gc 
+-XX:+UseParNewGC -XX:ParallelGCThreads=16 
+-XX:+DisableExplicitGC -XX:+UseConcMarkSweepGC 
+-XX:CMSInitiatingOccupancyFraction=75
+-XX:+CMSPermGenSweepingEnabled  
+-XX:+CMSClassUnloadingEnabled 
+-XX:+CMSParallelRemarkEnabled 
+-XX:+UseCMSCompactAtFullCollection 
+-XX:+UseCompressedOops  
+-XX:+PrintGCDateStamps 
+-XX:+PrintGCDetails 
+-XX:+PrintGCApplicationConcurrentTime 
+-XX:+PrintGCApplicationStoppedTime
 
 ###jvm概览
 ####jvm基本数据结构
@@ -136,7 +149,7 @@ serial多线程GC版本。可与CMS混用。新生代采用复制算法暂停用
       final：不可变（数组、对象不变的是引用）。不会再被继承。
             JVM有优化，可在高并发情况下访问。（原因在于保证可见性，有序性通过准备阶段赋值保证） 
       static：静态可访问。  
-      
+      因此我们logFactory多使用final static 。满足不更改、高并发的条件。
     解析：
        解析阶段不一定按照顺序，因为有动态绑定的情况。  
        虚拟机将常量池内的符号引用替换为直接引用的过程。    
@@ -192,7 +205,7 @@ java.*开头的将委派给父类加载
 标量替换（对象展开）（确定不能再分割）  
 
 ###高效并发
-内存模型  
+内存模型   
 原子性、可见性、有序性  
 线程的实现与调度  
 线程安全  
