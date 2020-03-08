@@ -4,7 +4,9 @@
 
 [TOC]
 
-jvm核心在于回收机制、多线程。CMS基本配置参数：
+jvm核心在于回收机制、多线程。
+
+CMS基本配置参数：
 
 -Xmx4g -Xms4g -Xmn600m -XX:PermSize=256m 
 -XX:MaxPermSize=256m -Xss256k -verbose:gc 
@@ -20,6 +22,7 @@ jvm核心在于回收机制、多线程。CMS基本配置参数：
 -XX:+PrintGCDetails 
 -XX:+PrintGCApplicationConcurrentTime 
 -XX:+PrintGCApplicationStoppedTime
+新生代晋升老年代岁数：默认15 -XX:MaxTenuringThreshold=15
 
 ###jvm概览
 ####jvm基本数据结构
