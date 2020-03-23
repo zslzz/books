@@ -1,28 +1,8 @@
 # 深入理解JVM
 
 -----
-
-[TOC]
-
 jvm核心在于回收机制、多线程。
-
-CMS基本配置参数：
-
--Xmx4g -Xms4g -Xmn600m -XX:PermSize=256m 
--XX:MaxPermSize=256m -Xss256k -verbose:gc 
--XX:+UseParNewGC -XX:ParallelGCThreads=16 
--XX:+DisableExplicitGC -XX:+UseConcMarkSweepGC 
--XX:CMSInitiatingOccupancyFraction=75
--XX:+CMSPermGenSweepingEnabled  
--XX:+CMSClassUnloadingEnabled 
--XX:+CMSParallelRemarkEnabled 
--XX:+UseCMSCompactAtFullCollection 
--XX:+UseCompressedOops  
--XX:+PrintGCDateStamps 
--XX:+PrintGCDetails 
--XX:+PrintGCApplicationConcurrentTime 
--XX:+PrintGCApplicationStoppedTime
-新生代晋升老年代岁数：默认15 -XX:MaxTenuringThreshold=15
+[TOC]
 
 ###jvm概览
 ####jvm基本数据结构

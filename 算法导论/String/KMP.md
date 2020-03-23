@@ -5,6 +5,7 @@
 **next[j]=Max(k | 1<k<j且'P1..Pk-1' = Pj-k+1....Pj-1 )  
  next[j]=0 j=1  
  next[j]=1 首尾重合数为0** 
+ 
 ```java
 class Solution {
       static int[] getNext(String P) {

@@ -1,6 +1,9 @@
 #redis基本类型
 String、Set、Zset、Map、List
 #redis 优化内存的手段
+- 基本数据结构上优化
+- 缓存淘汰策略
+
 ##String 
 SDS（simple dynamic string）：简单动态字符串
 好处：a.常数获取字符串长度；b.杜绝缓冲区溢出；c.减少字符串内存重新分配次数
